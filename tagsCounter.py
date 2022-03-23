@@ -21,6 +21,3 @@ def get_tags_number(url):
     counter = HTMLTagCounter()
     counter.feed(response.text)
     return counter.tagsDictionary
-
-
-print(get_tags_number('https://www.google.com/'))

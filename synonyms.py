@@ -5,7 +5,15 @@ data = yaml.load(open("./synonyms.yaml"), Loader=Loader)
 fileText = yaml.dump(data)
 withoutLast = slice(0, -1)
 
-aliases = dict(map(lambda s: s.split(':'), str(fileText).split('\n')[withoutLast]))
+
+def get_key_value(s):
+    split_items = s.split(':')
+    key = str(split_items[0])
+    value = ':'.join(split_items[1:])
+    return key.strip(), value.strip()
+
+
+aliases = dict(map(get_key_value, str(fileText).split('\n')[:-1]))
 print(aliases)
 
 
