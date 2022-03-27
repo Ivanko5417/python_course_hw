@@ -1,13 +1,8 @@
 import sys
-from gui import GUI
-from synonyms import aliases
-from tagsCounter import get_tags_number
-import tagInfoRepository
-
-if len(sys.argv) <= 1:
-    print('GUI')
-else:
-    print('Console')
+from tagcounter.gui import GUI
+from tagcounter.synonyms import aliases
+from tagcounter.tagsCounter import get_tags_number
+import tagcounter.tagInfoRepository as tagInfoRepository
 
 
 def get_url_by_alias(alias):
@@ -26,4 +21,12 @@ def view(url_or_alias):
     return tagInfoRepository.get_by_url(url)
 
 
-gui = GUI(get, view)
+def main():
+    if len(sys.argv) <= 1:
+        GUI(get, view)
+    else:
+        print('Console')
+
+
+if __name__ == '__main__':
+    main()

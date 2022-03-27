@@ -5,7 +5,7 @@ def __prettify_dict__(dictionary):
     prettified_dict = ""
     for value in dictionary.items():
         print(value)
-        prettified_dict += "{:<10}: {:<4}\n".format(f"<{value[0]}>", str(value[1]))
+        prettified_dict += "{:<12}: {:<4}\n".format(f"<{value[0]}>", str(value[1]))
     return prettified_dict
 
 

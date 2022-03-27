@@ -1,6 +1,6 @@
 from pickle import dumps, loads
 from datetime import datetime
-from db import cursor, con
+from tagcounter.db import cursor, con
 from urllib.parse import urlparse
 
 

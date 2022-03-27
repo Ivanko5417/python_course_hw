@@ -1,7 +1,6 @@
 import yaml
-from yaml import Loader
 
-data = yaml.load(open("./synonyms.yaml"), Loader=Loader)
+data = yaml.load(open("tagcounter/synonyms.yaml"), Loader=yaml.Loader)
 fileText = yaml.dump(data)
 
 
