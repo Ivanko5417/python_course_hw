@@ -3,7 +3,6 @@ from yaml import Loader
 
 data = yaml.load(open("./synonyms.yaml"), Loader=Loader)
 fileText = yaml.dump(data)
-withoutLast = slice(0, -1)
 
 
 def get_key_value(s):
