@@ -1,12 +1,17 @@
 import sys
 from tagcounter.gui import GUI
+from tagcounter.console import Console
 from tagcounter.synonyms import aliases
 from tagcounter.tagsCounter import get_tags_number
 import tagcounter.tagInfoRepository as tagInfoRepository
 
 
 def get_url_by_alias(alias):
-    return aliases.get(alias) or alias
+    aliased_url = aliases.get(alias)
+    if aliased_url is not None:
+        return aliased_url
+    url = alias
+    return url if url.startswith('http') else ('https://' + url)
 
 
 def get(url_or_alias):
@@ -25,7 +30,7 @@ def main():
     if len(sys.argv) <= 1:
         GUI(get, view)
     else:
-        print('Console')
+        Console(get, view)
 
 
 if __name__ == '__main__':

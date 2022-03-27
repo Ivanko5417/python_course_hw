@@ -4,7 +4,6 @@ from tkinter import *
 def __prettify_dict__(dictionary):
     prettified_dict = ""
     for value in dictionary.items():
-        print(value)
         prettified_dict += "{:<12}: {:<4}\n".format(f"<{value[0]}>", str(value[1]))
     return prettified_dict
 
@@ -42,4 +41,8 @@ class GUI:
     def on_view_click(self):
         url_or_alias = self.__site_input__.get()
         url_data = self.__view_url_data__(url_or_alias)
+        if url_data is None:
+            self.__status_label__.delete('1.0', END)
+            self.__status_label__.insert(INSERT, 'Nothing found')
+            return
         self.put_dict_to_text(url_data[3])

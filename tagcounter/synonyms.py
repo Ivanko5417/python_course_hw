@@ -12,6 +12,5 @@ def get_key_value(s):
 
 
 aliases = dict(map(get_key_value, str(fileText).split('\n')[:-1]))
-print(aliases)
 
 
