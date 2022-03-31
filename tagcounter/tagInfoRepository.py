@@ -12,7 +12,6 @@ def create(url, tags_dictionary):
 
 def get_by_url(url):
     parsed_url = urlparse(url)
-    print(parsed_url)
     found_entity = cursor.execute("SELECT * FROM tags_info WHERE domain=?;", (parsed_url.netloc,)).fetchone()
     if found_entity is None:
         return
