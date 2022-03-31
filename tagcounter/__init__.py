@@ -3,9 +3,11 @@ from tagcounter.logger import configure_logger
 import logging
 from tagcounter.gui import GUI
 from tagcounter.console import Console
-from tagcounter.synonyms import aliases
+from tagcounter.synonyms import fetch_aliases
 from tagcounter.tagsCounter import get_tags_number
 import tagcounter.tagInfoRepository as tagInfoRepository
+
+aliases = fetch_aliases()
 
 
 def get_url_by_alias(alias):

@@ -1,8 +1,5 @@
 import yaml
 
-data = yaml.load(open("tagcounter/synonyms.yaml"), Loader=yaml.Loader)
-fileText = yaml.dump(data)
-
 
 def get_key_value(s):
     split_items = s.split(':')
@@ -11,6 +8,13 @@ def get_key_value(s):
     return key.strip(), value.strip()
 
 
-aliases = dict(map(get_key_value, str(fileText).split('\n')[:-1]))
+def get_aliases_from_yaml(text):
+    return dict(map(get_key_value, str(text).split('\n')[:-1]))
+
+
+def fetch_aliases():
+    data = yaml.load(open("tagcounter/synonyms.yaml"), Loader=yaml.Loader)
+    return get_aliases_from_yaml(yaml.dump(data))
+
 
 
